@@ -50,7 +50,7 @@ def query_bsi_dataset(secret_id, start_period="2020-01-01"):
     df_bsi_all['series_sub_component_th'] = np.where(df_bsi_all['series_sub_component_th'] == '', 'BSI', df_bsi_all['series_sub_component_th'])
     
     #Export to csv
-    df_bsi_all.to_csv('data/bsi.csv', encoding='utf-8-sig')
+    df_bsi_all.to_csv('bsi.csv', encoding='utf-8-sig')
     return df_bsi_all
 
 #Contribution to index
@@ -66,7 +66,7 @@ def gen_bsictg(df):
     df_cont = df_cont.round(2)
     
     #Export to csv
-    df_cont.to_csv('data/bsictg.csv', encoding='utf-8-sig')
+    df_cont.to_csv('bsictg.csv', encoding='utf-8-sig')
 
 if __name__ == "__main__":
     df = query_bsi_dataset(os.environ['SECRET_ID'], start_period="2020-01-01")
