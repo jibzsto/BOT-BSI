@@ -20,7 +20,6 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Get BSI data from botapi
-      working-directory: data
       run: python query_bot_bsi.py
       env:
         SECRET_ID: ${{ secrets.SECRET_ID }}
