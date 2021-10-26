@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import requests
 import json
+import os
 
 def query_bsi_dataset(secret_id, start_period="2020-01-01"):
     headers = {
@@ -68,5 +69,5 @@ def gen_bsictg(df):
     df_cont.to_csv('data/bsictg.csv', encoding='utf-8-sig')
 
 if __name__ == "__main__":
-    df = query_bsi_dataset(SECRET_ID, start_period="2020-01-01")
+    df = query_bsi_dataset(os.environ['SECRET_ID'], start_period="2020-01-01")
     gen_bsictg(df)
